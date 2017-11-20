@@ -24,6 +24,14 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_dlist
+{
+	void			*content;
+	size_t			content_size;
+	struct s_dlist	*next;
+	struct s_dlist	*prev;
+}					t_dlist;
+
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -86,7 +94,19 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
+t_dlist				*ft_dlstnew(void const *content, size_t content_size);
+void				ft_dlstdelone(t_dlist **alst, void (*del)(void*, size_t));
+void				ft_dlstdel(t_dlist **alst, void (*del)(void *, size_t));
+unsigned int		ft_dlstlen(t_dlist **head);
+void				ft_dlstadd(t_dlist **alst, t_dlist *new);
+void				ft_dlstpush(t_dlist **alst, t_dlist *new);
+
 char				*ft_itoa_base(int n, int base);
+int					ft_sqrt_high(int nb);
+void				ft_swap_int(int *a, int *b);
+void				ft_swap_uint(unsigned int *a, unsigned int *b);
+void				ft_puttab(char const **tab);
+unsigned int		ft_lstlen(t_list **head);
 void				ft_lstpush(t_list **alst, t_list *new);
 void				ft_putnode_int(t_list *node);
 void				ft_putnode_str(t_list *node);

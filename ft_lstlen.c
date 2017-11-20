@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_list_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 16:31:40 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/30 16:31:41 by domelche         ###   ########.fr       */
+/*   Created: 2017/11/18 17:35:19 by domelche          #+#    #+#             */
+/*   Updated: 2017/11/18 17:39:57 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+unsigned int	ft_lstlen(t_list **head)
 {
-	char	*str;
-	char	*sub;
-	size_t	i;
+	unsigned int	i;
+	t_list			*lst;
 
-	if (s)
+	i = 1;
+	if (!head || !*head)
+		return (0);
+	lst = *head;
+	while (lst->next)
 	{
-		str = (char *)s;
-		if (!(sub = (char *)ft_memalloc(sizeof(char) * (len + 1))))
-			return (NULL);
-		i = 0;
-		while (i < len && s[i])
-			sub[i++] = str[start++];
-		sub[i] = 0;
-		return (sub);
+		i++;
+		lst = lst->next;
 	}
-	return (NULL);
+	return (i);
 }

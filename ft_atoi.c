@@ -12,42 +12,45 @@
 
 #include "libft.h"
 
-static int	ft_atoi_pass_spcs(const char *str)
+static char	*ft_atoi_cut(char *str, int *sign)
 {
 	int		i;
+	int		j;
+	char	*s;
 
 	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	s = ft_strdup(str);
+	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
 		i++;
-	return (i);
-}
-
-static int	ft_atoi_pass_zres(const char *str, int i)
-{
-	while (str[i] == '0')
+	*sign = (s[i] == '-') ? -1 : 1;
+	if (s[i] == '-' || s[i] == '+')
 		i++;
-	return (i);
+	while (s[i] == '0')
+		i++;
+	j = i;
+	while (ft_isdigit(s[j]) != 0 && s[j])
+		j++;
+	s[j] = 0;
+	return (&s[i]);
 }
 
 int			ft_atoi(const char *str)
 {
-	int					i;
+	char				*s;
 	int					sign;
+	int					str_len;
 	unsigned long long	res;
 	unsigned long long	max;
 
 	res = 0;
 	max = 9223372036854775807;
-	i = ft_atoi_pass_spcs(str);
-	sign = (str[i] == '-') ? -1 : 1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	i = ft_atoi_pass_zres(str, i);
-	while (ft_isdigit(str[i]) != 0)
-		res = res * 10 + (str[i++] - '0');
-	if (res > max && sign > 0)
+	s = ft_atoi_cut((char *)str, &sign);
+	str_len = ft_strlen(s);
+	while (*s)
+		res = res * 10 + (*s++ - '0');
+	if ((res > max || str_len > 19) && sign > 0)
 		return (-1);
-	if (res > max + 1 && sign < 0)
+	if ((res > max + 1 || str_len > 19) && sign < 0)
 		return (0);
 	return ((int)(res * sign));
 }

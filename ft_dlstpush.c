@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_dlstpush.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 16:31:40 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/30 16:31:41 by domelche         ###   ########.fr       */
+/*   Created: 2017/11/18 19:51:08 by domelche          #+#    #+#             */
+/*   Updated: 2017/11/18 19:51:09 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	ft_dlstpush(t_dlist **alst, t_dlist *new)
 {
-	char	*str;
-	char	*sub;
-	size_t	i;
+	t_dlist	*tmp;
 
-	if (s)
+	if (new)
 	{
-		str = (char *)s;
-		if (!(sub = (char *)ft_memalloc(sizeof(char) * (len + 1))))
-			return (NULL);
-		i = 0;
-		while (i < len && s[i])
-			sub[i++] = str[start++];
-		sub[i] = 0;
-		return (sub);
+		if (alst)
+		{
+			if (*alst)
+			{
+				tmp = *alst;
+				while (tmp->next)
+					tmp = tmp->next;
+				tmp->next = new;
+				tmp->next->prev = tmp;
+			}
+			else
+				*alst = new;
+		}
+		else
+			alst = &new;
 	}
-	return (NULL);
 }

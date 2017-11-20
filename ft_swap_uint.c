@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_swap_uint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 16:31:40 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/30 16:31:41 by domelche         ###   ########.fr       */
+/*   Created: 2017/11/20 14:26:53 by domelche          #+#    #+#             */
+/*   Updated: 2017/11/20 14:26:54 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	ft_swap_uint(unsigned int *a, unsigned int *b)
 {
-	char	*str;
-	char	*sub;
-	size_t	i;
+	unsigned int	tmp;
 
-	if (s)
-	{
-		str = (char *)s;
-		if (!(sub = (char *)ft_memalloc(sizeof(char) * (len + 1))))
-			return (NULL);
-		i = 0;
-		while (i < len && s[i])
-			sub[i++] = str[start++];
-		sub[i] = 0;
-		return (sub);
-	}
-	return (NULL);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

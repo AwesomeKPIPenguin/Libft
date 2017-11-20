@@ -14,13 +14,11 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int		i1;
-	int		i2;
+	int		i;
 
-	i1 = 0;
-	i2 = 0;
-	while (s1[i1])
-		i1++;
-	ft_strcpy(&s1[i1], s2);
+	i = 0;
+	while (s1[i])
+		i++;
+	ft_strcpy(&s1[i], s2);
 	return (s1);
 }
