@@ -17,6 +17,16 @@
 # include <stdlib.h>
 # include <string.h>
 
+# define BUFF_SIZE 1024
+
+typedef struct		s_file
+{
+	int				fd;
+	char			*buf;
+	size_t			buf_size;
+	size_t			i;
+}					t_file;
+
 typedef struct		s_list
 {
 	void			*content;
@@ -112,5 +122,7 @@ void				ft_putnode_int(t_list *node);
 void				ft_putnode_str(t_list *node);
 void				ft_putlist_int(t_list *head);
 void				ft_putlist_str(t_list *head);
+
+int					get_next_line(const int fd, char **line);
 
 #endif
