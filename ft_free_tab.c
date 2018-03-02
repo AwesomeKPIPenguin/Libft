@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/27 14:27:20 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/27 14:27:21 by domelche         ###   ########.fr       */
+/*   Created: 2018/02/18 19:56:31 by domelche          #+#    #+#             */
+/*   Updated: 2018/02/18 20:38:05 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	ft_free_tab(char **tab)
 {
-	unsigned char	*dst_str;
-	unsigned char	*src_str;
-	size_t			i;
+	int		i;
 
-	dst_str = (unsigned char *)dst;
-	src_str = (unsigned char *)src;
-	i = 0;
-	while (i < n)
-	{
-		dst_str[i] = src_str[i];
-		i++;
-		if (src_str[i - 1] == (unsigned char)c)
-			return (&dst[i]);
-	}
-	return (NULL);
+	if (!tab)
+		return ;
+	i = -1;
+	while (tab[++i])
+		free(tab[i]);
+	free(tab);
 }

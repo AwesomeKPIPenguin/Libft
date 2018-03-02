@@ -14,26 +14,23 @@
 
 t_dlist	*ft_dlstnew(void const *content, size_t content_size)
 {
-	t_dlist	*ptr_a;
+	t_dlist	*node;
 
-	if (!(ptr_a = (t_dlist*)malloc(sizeof(t_dlist))))
+	if (!(node = (t_dlist *)malloc(sizeof(t_dlist))))
 		return (NULL);
-	if (!((void*)content))
+	if (content != NULL)
 	{
-		ptr_a->content = NULL;
-		ptr_a->content_size = 0;
+		if (!(node->content = malloc(content_size)))
+			return (NULL);
+		node->content = ft_memmove(node->content, content, content_size);
 	}
 	else
 	{
-		if (!(ptr_a->content = malloc(content_size)))
-		{
-			free(ptr_a);
-			return (NULL);
-		}
-		ft_memmove(ptr_a->content, content, content_size);
-		ptr_a->content_size = content_size;
+		node->content = NULL;
+		content_size = 0;
 	}
-	ptr_a->next = NULL;
-	ptr_a->prev = NULL;
-	return (ptr_a);
+	node->content_size = content_size;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
 }

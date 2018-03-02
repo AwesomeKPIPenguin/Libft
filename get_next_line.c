@@ -6,7 +6,7 @@
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 16:41:02 by domelche          #+#    #+#             */
-/*   Updated: 2018/01/13 16:41:04 by domelche         ###   ########.fr       */
+/*   Updated: 2018/01/31 16:46:55 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ static int		ft_quit(int ret, char **line, size_t size)
 	if (ret == 0 && size > 1)
 		ret = 1;
 	if (ret == 0 || size == 1)
+	{
+		free(*line);
 		if (!(*line = (char *)ft_memalloc(sizeof(char))))
 			return (-1);
+	}
 	return (ret);
 }
 

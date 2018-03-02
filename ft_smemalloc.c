@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_smemalloc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/27 14:27:20 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/27 14:27:21 by domelche         ###   ########.fr       */
+/*   Created: 2018/02/15 17:39:37 by domelche          #+#    #+#             */
+/*   Updated: 2018/02/15 17:53:48 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <errno.h>
+#include <stdio.h>
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_smemalloc(size_t size, char *ft_name)
 {
-	unsigned char	*dst_str;
-	unsigned char	*src_str;
-	size_t			i;
+	void	*mem;
 
-	dst_str = (unsigned char *)dst;
-	src_str = (unsigned char *)src;
-	i = 0;
-	while (i < n)
+	if (!(mem = ft_memalloc(size)))
 	{
-		dst_str[i] = src_str[i];
-		i++;
-		if (src_str[i - 1] == (unsigned char)c)
-			return (&dst[i]);
+		ft_putstr("Error: memory allocation fails at ");
+		ft_putendl(ft_name);
+		exit(EXIT_FAILURE);
 	}
-	return (NULL);
+	return (mem);
 }

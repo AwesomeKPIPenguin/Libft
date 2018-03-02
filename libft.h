@@ -6,17 +6,19 @@
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 15:12:40 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/25 15:12:42 by domelche         ###   ########.fr       */
+/*   Updated: 2018/02/18 20:01:21 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
+
 # define LIBFT_H
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
 
+# define ATOI_ULL_MAX 9223372036854775807
 # define BUFF_SIZE 1024
 
 typedef struct		s_file
@@ -122,7 +124,9 @@ void				ft_putnode_int(t_list *node);
 void				ft_putnode_str(t_list *node);
 void				ft_putlist_int(t_list *head);
 void				ft_putlist_str(t_list *head);
-
+void				*ft_smemalloc(size_t size, char *ft_name);
+int					ft_arrlen(char **arr);
+void				ft_free_tab(char **tab);
 int					get_next_line(const int fd, char **line);
 
 #endif
