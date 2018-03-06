@@ -118,6 +118,7 @@ int					ft_sqrt_high(int nb);
 void				ft_swap_int(int *a, int *b);
 void				ft_swap_uint(unsigned int *a, unsigned int *b);
 void				ft_puttab(char const **tab);
+t_list				*ft_nodenew(void *content, size_t content_size);
 unsigned int		ft_lstlen(t_list **head);
 void				ft_lstpush(t_list **alst, t_list *new);
 void				ft_putnode_int(t_list *node);

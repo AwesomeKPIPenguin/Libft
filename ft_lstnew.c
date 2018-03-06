@@ -16,12 +16,10 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*node;
 
-	if (!(node = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	if (content != NULL)
+	node = (t_list *)ft_smemalloc(sizeof(t_list), "ft_lstnew (node)");
+	if (content)
 	{
-		if (!(node->content = malloc(content_size)))
-			return (NULL);
+		node->content = ft_smemalloc(content_size, "ft_lstnew (node->content)");
 		node->content = ft_memmove(node->content, content, content_size);
 	}
 	else
