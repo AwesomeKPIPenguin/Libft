@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_indexof_chr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/27 11:25:35 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/27 11:25:37 by domelche         ###   ########.fr       */
+/*   Created: 2018/03/09 16:41:48 by domelche          #+#    #+#             */
+/*   Updated: 2018/03/09 16:45:04 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int		ft_indexof_chr(char *str, int c)
 {
-	char	*res;
+	int		i;
 
-	res = (char *)s;
-	while (*res != c && *res)
-		++res;
-	if (*res == c)
-		return (res);
-	else
-		return (NULL);
+	if (!str)
+		return (-1);
+	i = -1;
+	while (str[++i])
+		if (str[i] == c)
+			return (i);
+	return (-1);
 }

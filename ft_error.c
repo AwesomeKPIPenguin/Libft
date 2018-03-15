@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/27 11:25:35 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/27 11:25:37 by domelche         ###   ########.fr       */
+/*   Created: 2018/03/09 15:14:38 by domelche          #+#    #+#             */
+/*   Updated: 2018/03/09 15:16:39 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_error(char *msg)
 {
-	char	*res;
-
-	res = (char *)s;
-	while (*res != c && *res)
-		++res;
-	if (*res == c)
-		return (res);
-	else
-		return (NULL);
+	ft_putstr("Error: ");
+	ft_putendl(msg);
+	exit(-1);
 }
