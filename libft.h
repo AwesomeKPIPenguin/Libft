@@ -133,6 +133,7 @@ void				ft_error(char *msg);
 void				ft_warn(char *msg);
 int					ft_indexof_chr(char *str, int c);
 char				*ft_strcut(char *str, size_t from, size_t to);
+<<<<<<< HEAD
 
 void				ft_putwchar(wint_t wc);
 void				ft_putwchar_fd(wint_t wc, int fd);
@@ -145,5 +146,7 @@ char 				*ft_itoa(long long num);
 char 				*ft_itoa_base(long long num, int base);
 char 				*ft_uitoa(unsigned long long num);
 char 				*ft_uitoa_base(unsigned long long num, int base);
+=======
+>>>>>>> f6782048eeb666599a899251bd32a9742e6e1ad6
 
 #endif
