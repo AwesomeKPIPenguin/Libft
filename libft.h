@@ -6,7 +6,7 @@
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 15:12:40 by domelche          #+#    #+#             */
-/*   Updated: 2018/02/18 20:01:21 by domelche         ###   ########.fr       */
+/*   Updated: 2018/03/15 17:49:24 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <wchar.h>
+# include <stddef.h>
 
 # define ATOI_ULL_MAX 9223372036854775807
 # define BUFF_SIZE 1024
@@ -51,7 +53,7 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
-size_t				ft_strlen(char *str);
+size_t				ft_strlen(const char *str);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
@@ -89,7 +91,6 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
-char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -113,7 +114,6 @@ unsigned int		ft_dlstlen(t_dlist **head);
 void				ft_dlstadd(t_dlist **alst, t_dlist *new);
 void				ft_dlstpush(t_dlist **alst, t_dlist *new);
 
-char				*ft_itoa_base(int n, int base);
 int					ft_sqrt_high(int nb);
 void				ft_swap_int(int *a, int *b);
 void				ft_swap_uint(unsigned int *a, unsigned int *b);
@@ -129,5 +129,21 @@ void				*ft_smemalloc(size_t size, char *ft_name);
 int					ft_arrlen(char **arr);
 void				ft_free_tab(char **tab);
 int					get_next_line(const int fd, char **line);
+void				ft_error(char *msg);
+void				ft_warn(char *msg);
+int					ft_indexof_chr(char *str, int c);
+char				*ft_strcut(char *str, size_t from, size_t to);
+
+void				ft_putwchar(wint_t wc);
+void				ft_putwchar_fd(wint_t wc, int fd);
+void				ft_putwstr(const wchar_t *wstr);
+void				ft_putwstr_fd(const wchar_t *wstr, int fd);
+void				ft_putwendl(const wchar_t *wstr);
+void				ft_putwendl_fd(const wchar_t *wstr, int fd);
+
+char 				*ft_itoa(long long num);
+char 				*ft_itoa_base(long long num, int base);
+char 				*ft_uitoa(unsigned long long num);
+char 				*ft_uitoa_base(unsigned long long num, int base);
 
 #endif

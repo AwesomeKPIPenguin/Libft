@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_warn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 11:55:04 by domelche          #+#    #+#             */
-/*   Updated: 2017/11/04 11:55:05 by domelche         ###   ########.fr       */
+/*   Created: 2018/03/09 15:16:51 by domelche          #+#    #+#             */
+/*   Updated: 2018/03/09 15:18:22 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "itoa_basic.h"
 
-char		*ft_itoa_base(long long num, int base)
+void	ft_warn(char *msg)
 {
-	unsigned long long	unum;
-	int 				sign;
-
-	if (base < 2 || base > 16)
-		return (NULL);
-	if (num < 0)
-	{
-		unum = -1 * num;
-		sign = 1;
-	}
-	else
-	{
-		unum = num;
-		sign = 0;
-	}
-	return (ft_itoa_basic(unum, sign, base));
+	ft_putstr("Warning: ");
+	ft_putendl(msg);
 }

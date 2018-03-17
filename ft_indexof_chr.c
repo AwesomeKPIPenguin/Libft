@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_indexof_chr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/04 11:55:04 by domelche          #+#    #+#             */
-/*   Updated: 2017/11/04 11:55:05 by domelche         ###   ########.fr       */
+/*   Created: 2018/03/09 16:41:48 by domelche          #+#    #+#             */
+/*   Updated: 2018/03/09 16:45:04 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "itoa_basic.h"
 
-char		*ft_itoa_base(long long num, int base)
+int		ft_indexof_chr(char *str, int c)
 {
-	unsigned long long	unum;
-	int 				sign;
+	int		i;
 
-	if (base < 2 || base > 16)
-		return (NULL);
-	if (num < 0)
-	{
-		unum = -1 * num;
-		sign = 1;
-	}
-	else
-	{
-		unum = num;
-		sign = 0;
-	}
-	return (ft_itoa_basic(unum, sign, base));
+	if (!str)
+		return (-1);
+	i = -1;
+	while (str[++i])
+		if (str[i] == c)
+			return (i);
+	return (-1);
 }
