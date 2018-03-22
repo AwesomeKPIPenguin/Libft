@@ -6,13 +6,10 @@
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 17:35:29 by domelche          #+#    #+#             */
-/*   Updated: 2018/03/15 17:47:40 by domelche         ###   ########.fr       */
+/*   Updated: 2018/03/22 14:44:46 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-<<<<<<< HEAD
-=======
->>>>>>> f6782048eeb666599a899251bd32a9742e6e1ad6
 #include "libft.h"
 
 static void	ft_swap_size_t(size_t *a, size_t *b)
