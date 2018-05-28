@@ -6,7 +6,7 @@
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/31 13:24:41 by domelche          #+#    #+#             */
-/*   Updated: 2018/03/31 13:42:36 by domelche         ###   ########.fr       */
+/*   Updated: 2018/05/10 18:14:42 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 **	function ft_itoa_basic is strongly NOT recommended for straight usage,
 **	because all validation is placed in "wrapping" functions, which are
 **	recommended to use: ft_itoa, ft_itoa_base, ft_uitoa, ft_uitoa_base;
-**	otherwise, in case of not valid arguments, undefined behavior is expected
+**	otherwise, in case of invalid arguments, undefined behavior is expected
 */
 
 #include "libft.h"
@@ -25,7 +25,7 @@ static char	*ft_strextract(char *str, int sign)
 	char			*res;
 
 	i = 0;
-	while (!str[i] && i < 31)
+	while (!str[i] && i < 8 * sizeof(unsigned long long) - 1)
 		i++;
 	if (sign)
 		str[--i] = '-';
@@ -39,8 +39,10 @@ char		*ft_itoa_basic(unsigned long long num, int sign, int base)
 	int		i;
 	char	*str;
 
-	i = 31;
-	str = (char *)ft_smemalloc(sizeof(char) * 33, "ft_itoa_basic");
+	i = 8 * sizeof(unsigned long long) - 1;
+	if (!(str = (char *)
+		ft_memalloc(sizeof(char) * (8 * sizeof(unsigned long long) + 1))))
+		return (NULL);
 	str[i] = '0';
 	while (num)
 	{

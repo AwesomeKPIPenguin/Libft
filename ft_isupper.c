@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 14:58:23 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/30 14:58:25 by domelche         ###   ########.fr       */
+/*   Created: 2018/04/22 14:47:06 by domelche          #+#    #+#             */
+/*   Updated: 2018/04/22 14:47:08 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size, char c)
+int		ft_isupper(int c)
 {
-	char	*str;
-	size_t	i;
-
-	if (!(str = (char *)malloc(size + 1)))
-		return (NULL);
-	str[size] = 0;
-	i = 0;
-	while (i < size)
-		str[i++] = c;
-	return (str);
+	return (c >= 'A' && c <= 'Z');
 }

@@ -6,7 +6,7 @@
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/25 15:12:40 by domelche          #+#    #+#             */
-/*   Updated: 2018/03/31 14:09:21 by domelche         ###   ########.fr       */
+/*   Updated: 2018/04/03 13:15:27 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,14 @@ int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+int					ft_isupper(int c);
+int					ft_islower(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
-char				*ft_strnew(size_t size);
+char				*ft_strnew(size_t size, char c);
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
@@ -133,7 +135,10 @@ void				ft_error(char *msg);
 void				ft_warn(char *msg);
 int					ft_indexof_chr(char *str, int c);
 char				*ft_strcut(char *str, size_t from, size_t to);
+void				ft_strrplc(char *str, char find, char put);
 
+void				ft_write_wctoa(wchar_t wc, char *str);
+char				*ft_ustos(wchar_t *us);
 void				ft_putwchar(wint_t wc);
 void				ft_putwchar_fd(wint_t wc, int fd);
 void				ft_putwstr(const wchar_t *wstr);

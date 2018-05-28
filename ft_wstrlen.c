@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: domelche <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 14:58:23 by domelche          #+#    #+#             */
-/*   Updated: 2017/10/30 14:58:25 by domelche         ###   ########.fr       */
+/*   Created: 2018/04/03 12:25:21 by domelche          #+#    #+#             */
+/*   Updated: 2018/04/03 12:35:26 by domelche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size, char c)
+size_t		ft_wstrlen(const wchar_t *wstr)
 {
-	char	*str;
-	size_t	i;
+	size_t	len;
 
-	if (!(str = (char *)malloc(size + 1)))
-		return (NULL);
-	str[size] = 0;
-	i = 0;
-	while (i < size)
-		str[i++] = c;
-	return (str);
+	if (!wstr)
+		return (0);
+	len = 0;
+	while (*wstr++)
+		++len;
+	return (len);
 }
